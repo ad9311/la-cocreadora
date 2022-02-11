@@ -37,3 +37,8 @@
 yarn-debug.log*
 .yarn-integrity
 package-lock.json
+
+# Linter config files
+.eslintrc.json
+.rubocop.yml
+.stylelintrc.json
