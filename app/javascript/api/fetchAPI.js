@@ -3,8 +3,8 @@ const fetchAPI = async () => {
   const request = await fetch(URL, {
     method: 'GET',
     headers: {
-      Accept: 'application/json'
-    }
+      Accept: 'application/json',
+    },
   });
   const response = await request.json();
   return response;
