@@ -25,8 +25,14 @@ const Challenges = () => {
   );
 
   return (
-    <div>
-      {mapChallenges}
+    <div className="main_container">
+      <div className="title">
+        <h1>Desafíos</h1>
+        <p>General</p>
+      </div>
+      <div className="challenge_container">
+        {mapChallenges}
+      </div>
     </div>
   );
 };

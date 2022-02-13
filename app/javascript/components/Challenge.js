@@ -25,7 +25,7 @@ const Challenge = (props) => {
         <h2>{objective}</h2>
       </div>
       <div>
-        <span>{`${time} Horas / ${points} Pts`}</span>
+        <span>{`${time} ${time > 1 ? 'Horas' : 'Hora'} / ${points} Pts`}</span>
       </div>
       <div className="status">
         <span className={`${challengeStatusColor()}`}>
