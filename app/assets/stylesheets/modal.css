@@ -2,16 +2,26 @@
   filter: blur(5px);
 }
 
-.modal_top h2, p {
+.center {
+  text-align: center;
+}
+
+.modal_top h2,
+p {
   margin-bottom: 1.5rem;
   color: var(--purple);
-  /* font-weight: bold; */
+}
+
+.modal_top p {
+  font-style: italic;
+  font-weight: bold;
 }
 
 .modal_top button {
   border: none;
   background-color: white;
   float: right;
+  cursor: pointer;
 }
 
 .modal_top img {
@@ -128,4 +138,49 @@
   cursor: pointer;
   background-color: var(--purple);
   color: white;
+}
+
+.profile img {
+  width: 5rem;
+  height: 5rem;
+}
+
+.name_rating h3 {
+  color: var(--purple);
+  font-size: 1.1rem;
+}
+
+.name_rating span {
+  color: var(--purple);
+  font-size: 0.85rem;
+}
+
+.info_status {
+  margin: 3rem 0;
+  padding-bottom: 3rem;
+  text-align: left;
+}
+
+.info_status span {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  width: 80%;
+  float: right;
+  border-radius: 1rem 0 0 1rem;
+  color: white;
+}
+
+.status_approved span {
+  background-color: var(--cyan);
+}
+
+.stars_rating {
+  padding: 0 1rem 0.5rem 1rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.stars_rating img {
+  width: 1.5rem;
+  height: 1.5rem;
 }
