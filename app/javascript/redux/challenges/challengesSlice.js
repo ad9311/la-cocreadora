@@ -9,6 +9,7 @@ const initialState = {
     message: '',
     data: [],
   },
+  selected: {},
 };
 
 export const fetchChallenges = createAsyncThunk(FETCH_CHALLENGES, async () => fetchAPI());
@@ -16,14 +17,22 @@ export const fetchChallenges = createAsyncThunk(FETCH_CHALLENGES, async () => fe
 const challengesSlice = createSlice({
   name: 'challenges',
   initialState,
-  reducers: {},
+  reducers: {
+    selectChallenge: (state, action) => ({
+      status: 'selected',
+      challenges: state.challenges,
+      selected: action.payload,
+    }),
+  },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchChallenges.fulfilled, (_state, action) => ({
+      .addCase(fetchChallenges.fulfilled, (state, action) => ({
         status: 'ready',
         challenges: action.payload,
+        selected: state.selected,
       }));
   },
 });
 
+export const { selectChallenge } = challengesSlice.actions;
 export default challengesSlice;

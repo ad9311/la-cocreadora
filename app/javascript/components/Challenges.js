@@ -16,10 +16,7 @@ const Challenges = () => {
     (challenge) => (
       <Challenge
         key={challenge.id}
-        objective={challenge.objective}
-        time={challenge.time}
-        points={challenge.points}
-        status={challenge.status}
+        challenge={challenge}
       />
     ),
   );
