@@ -21,7 +21,6 @@ const Challenge = (props) => {
   const selectChallengeHandle = () => {
     if (selected.id !== challenge.id) {
       dispatch(selectChallenge(challenge));
-      console.log('Selected:', challenge.id);
     }
   };
 

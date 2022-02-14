@@ -1,0 +1,131 @@
+.blur {
+  filter: blur(5px);
+}
+
+.modal_top h2, p {
+  margin-bottom: 1.5rem;
+  color: var(--purple);
+  /* font-weight: bold; */
+}
+
+.modal_top button {
+  border: none;
+  background-color: white;
+  float: right;
+}
+
+.modal_top img {
+  width: 0.8rem;
+  height: 0.8rem;
+}
+
+.modal {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 40rem;
+  padding: 2.5rem;
+  background-color: white;
+  box-shadow: 0 0 0.75rem 0.15rem var(--shadow);
+  z-index: 1;
+  border-radius: 0.5rem;
+}
+
+.modal_inner {
+  padding: 1.5rem;
+  margin: 1rem 0 2rem 0;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: var(--light-gray);
+  border-radius: 0.25rem;
+}
+
+.right_container {
+  padding-right: 2rem;
+  width: 60%;
+}
+
+.left_container {
+  padding-left: 1.25rem;
+  width: 40%;
+  border-left: 0.05rem var(--gray) dotted;
+}
+
+.objective {
+  margin-bottom: 0.5rem;
+  color: var(--purple);
+  font-size: 1.1rem;
+}
+
+.description {
+  color: var(--purple);
+  font-size: 0.8rem;
+  font-weight: lighter;
+}
+
+.assigned span {
+  display: block;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  font-size: 0.75rem;
+  color: var(--purple);
+}
+
+.assigned p {
+  font-size: 0.75rem;
+  color: var(--purple);
+  font-weight: lighter;
+}
+
+.deadline {
+  margin-right: 3rem;
+}
+
+.deadline span {
+  color: var(--purple);
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.deadline p {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--dark-gray);
+}
+
+.comment {
+  padding: 0.65rem;
+  margin-top: 1rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  color: var(--dark-gray);
+}
+
+.comment p {
+  font-style: italic;
+  font-size: 0.7rem;
+  margin: 0 0.5rem 0.5rem 0;
+}
+
+.comment span {
+  display: block;
+  color: inherit;
+  font-size: 0.65rem;
+  font-weight: normal;
+  text-align: right;
+}
+
+.score_button {
+  margin-top: 5rem;
+}
+
+.score_button button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  float: right;
+  cursor: pointer;
+  background-color: var(--purple);
+  color: white;
+}
