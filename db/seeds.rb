@@ -36,9 +36,9 @@ challenges = Challenge.create(
       deadline: '2022-02-20',
       time: 1,
       points: 8,
-      status: 'Aprobado',
+      status: 'Pendiente',
       assigned: 'Andrea González',
-      rating: 3
+      rating: 0
     },
     {
       objective: 'Desarrolla un proceso de planeación colectiva',
@@ -46,9 +46,9 @@ challenges = Challenge.create(
       deadline: '2022-02-20',
       time: 2,
       points: 12,
-      status: 'Aprobado',
+      status: 'Pendiente',
       assigned: 'Andrea González',
-      rating: 5
+      rating: 0
     },
     {
       objective: 'Conocimientos sobre los usuarios',

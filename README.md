@@ -1,24 +1,13 @@
-# README
+# La Cocreadora
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Instrucciones:
+Corra los siguientes commandos:
 
-Things you may want to cover:
+- `npm install`
+- `rails db:create`
+- `rails db:migrate`
+- `rails db:seed`
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Características:
+- Los desafíos que sean calificados con menos de 3 estrellas serán categorizados como rechazados.
+- Una vez enviada la calificación, el estado del desafío se actualizará de inmediato.
