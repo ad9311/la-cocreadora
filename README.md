@@ -11,6 +11,7 @@ Este proyecto ha sido desarrollado con:
 Corra los siguientes commandos:
 
 - `npm install`
+- `bundle install`
 - `rails db:create`
 - `rails db:migrate`
 - `rails db:seed`
