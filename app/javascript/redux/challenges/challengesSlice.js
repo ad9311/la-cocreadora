@@ -10,6 +10,7 @@ const initialState = {
     data: [],
   },
   selected: {},
+  openScore: false,
 };
 
 export const fetchChallenges = createAsyncThunk(FETCH_CHALLENGES, async () => fetchAPI());
@@ -22,6 +23,13 @@ const challengesSlice = createSlice({
       status: 'selected',
       challenges: state.challenges,
       selected: action.payload,
+      openScore: state.openScore,
+    }),
+    openScoreModal: (state) => ({
+      status: state.status,
+      challenges: state.challenges,
+      selected: state.selected,
+      openScore: !state.openScore,
     }),
   },
   extraReducers: (builder) => {
@@ -30,9 +38,10 @@ const challengesSlice = createSlice({
         status: 'ready',
         challenges: action.payload,
         selected: state.selected,
+        openScore: state.openScore,
       }));
   },
 });
 
-export const { selectChallenge } = challengesSlice.actions;
+export const { selectChallenge, openScoreModal } = challengesSlice.actions;
 export default challengesSlice;

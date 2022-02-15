@@ -1,0 +1,66 @@
+.score_modal {
+  position: absolute;
+  background-color: white;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-bottom: 3rem;
+}
+
+.hint {
+  padding-right: 1rem;
+}
+
+.hint p {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--gray);
+}
+
+.rating_container {
+  margin: 2rem 10rem;
+  padding: 2rem;
+  background-color: var(--light-gray);
+  border-radius: 0.5rem;
+}
+
+.stars_container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.score_stars {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.score_stars img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.score_stars img:hover {
+  opacity: 0.9;
+}
+
+.scale {
+  display: flex;
+  justify-content: space-between;
+}
+
+.scale p {
+  color: var(--gray);
+  font-size: 0.8rem;
+}
+
+.rating_text {
+  margin: 1rem 10rem;
+}
+
+.rating_text p {
+  text-align: center;
+  color: var(--dark-gray);
+  font-size: 0.85rem;
+}
