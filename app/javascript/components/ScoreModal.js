@@ -2,13 +2,16 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Close from '../../assets/images/close.png';
 import { openScoreModal } from '../redux/challenges/challengesSlice';
-import { nextPage } from '../redux/rating/ratingSlice';
+import { nextPage, rateChallenge } from '../redux/rating/ratingSlice';
 import ScoreStar from './ScoreStar';
+import FilledStar from '../../assets/images/purple-filled-star.png';
+import UnfilledStar from '../../assets/images/purple-unfilled-star.png';
 import Profile from '../../assets/images/profile.png';
+import Check from '../../assets/images/check.png';
 
 const ScoreModal = () => {
   const { openScore, selected } = useSelector((state) => state.challenges);
-  const { next } = useSelector((state) => state.rating);
+  const { next, rating, confirmation } = useSelector((state) => state.rating);
   const dispatch = useDispatch();
 
   const closeScoreModal = () => {
@@ -24,7 +27,48 @@ const ScoreModal = () => {
     dispatch(nextPage());
   };
 
+  const rateChallengeHandle = () => {
+    const score = () => {
+      if (rating >= 3) {
+        return 'Aprobado';
+      }
+      return 'Rechazado';
+    };
+
+    dispatch(rateChallenge({
+      id: selected.id,
+      rating,
+      status: score(),
+    }));
+  };
+
+  const mapRatingStars = (unmut = false) => {
+    const indexes = [1, 2, 3, 4, 5];
+    const mapStars = indexes.map(
+      (index) => {
+        if (unmut) {
+          return (
+            <ScoreStar key={index} id={index} unmut filledStar={FilledStar} unfilledStar={UnfilledStar} />
+          );
+        }
+        return (
+          <ScoreStar key={index} id={index} filledStar={FilledStar} unfilledStar={UnfilledStar} />
+        );
+      },
+    );
+    return mapStars;
+  };
+
   const renderPage = () => {
+    if (confirmation !== '') {
+      return (
+        <div className="confirmation">
+          <img src={Check} alt="check" />
+          <h3>Evaluación enviada</h3>
+          <p>{confirmation.message}</p>
+        </div>
+      );
+    }
     if (next) {
       return (
         <div>
@@ -38,17 +82,13 @@ const ScoreModal = () => {
                 <h3>{selected.assigned}</h3>
               </div>
               <div className="stars_final_score">
-                <ScoreStar id={1} unmut />
-                <ScoreStar id={2} unmut />
-                <ScoreStar id={3} unmut />
-                <ScoreStar id={4} unmut />
-                <ScoreStar id={5} unmut />
+                {mapRatingStars(true)}
               </div>
             </div>
             <div className="comment_side">
               <textarea placeholder="Escribe un comentario..." />
               <div className="send_button">
-                <button type="button">Enviar evaluación</button>
+                <button type="button" onClick={rateChallengeHandle}>Enviar evaluación</button>
               </div>
             </div>
           </div>
@@ -67,11 +107,7 @@ const ScoreModal = () => {
           <p>Calificación</p>
           <div className="rating_container">
             <div className="stars_container">
-              <ScoreStar id={1} />
-              <ScoreStar id={2} />
-              <ScoreStar id={3} />
-              <ScoreStar id={4} />
-              <ScoreStar id={5} />
+              {mapRatingStars()}
             </div>
             <div className="scale">
               <p>Más bajo</p>
@@ -95,7 +131,7 @@ const ScoreModal = () => {
         <button type="button" onClick={closeScoreModal}>
           <img src={Close} alt="close" />
         </button>
-        <h2>Evalúe los resultados del Desafío:</h2>
+        {confirmation.message === undefined ? <h2>Evalúe los resultados del Desafío:</h2> : ''}
       </div>
       <div>
         {renderPage()}

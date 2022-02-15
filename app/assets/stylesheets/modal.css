@@ -192,3 +192,24 @@ p {
   width: 1.5rem;
   height: 1.5rem;
 }
+
+.confirmation {
+  margin: 6rem auto 0 auto;
+  text-align: center;
+  width: 30%;
+}
+
+.confirmation h3 {
+  color: var(--cyan);
+}
+
+.confirmation p {
+  margin-top: 1.5rem;
+  color: var(--purple);
+  font-size: 1rem;
+}
+
+.confirmation img {
+  width: 7rem;
+  height: 7rem;
+}

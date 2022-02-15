@@ -6,12 +6,13 @@ import Modal from './Modal';
 
 const Challenges = () => {
   const { challenges, status, selected } = useSelector((state) => state.challenges);
+  const { confirmation } = useSelector((state) => state.rating);
   const dispatch = useDispatch();
   useEffect(() => {
-    if (status === 'default') {
+    if (status === 'default' || confirmation !== '') {
       dispatch(fetchChallenges());
     }
-  }, [status, selected]);
+  }, [status, selected, confirmation]);
 
   const mapChallenges = challenges.data.map(
     (challenge) => (

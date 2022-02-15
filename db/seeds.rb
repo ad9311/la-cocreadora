@@ -38,7 +38,7 @@ challenges = Challenge.create(
       points: 8,
       status: 'Aprobado',
       assigned: 'Andrea González',
-      rating: 0
+      rating: 3
     },
     {
       objective: 'Desarrolla un proceso de planeación colectiva',
@@ -48,7 +48,7 @@ challenges = Challenge.create(
       points: 12,
       status: 'Aprobado',
       assigned: 'Andrea González',
-      rating: 0
+      rating: 5
     },
     {
       objective: 'Conocimientos sobre los usuarios',
@@ -68,7 +68,7 @@ challenges = Challenge.create(
       points: 8,
       status: 'Aprobado',
       assigned: 'Andrea González',
-      rating: 0
+      rating: 4
     },
     {
       objective: 'Desarrolla un proceso de planeación colectiva',
@@ -78,7 +78,7 @@ challenges = Challenge.create(
       points: 12,
       status: 'Aprobado',
       assigned: 'Andrea González',
-      rating: 0
+      rating: 4
     },
     {
       objective: 'Conocimientos sobre los usuarios',

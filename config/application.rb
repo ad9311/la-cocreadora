@@ -33,5 +33,6 @@ module LaCocreadora
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    config.api_only = true
   end
 end

@@ -7,6 +7,7 @@ import Profile from '../../assets/images/profile.png';
 import FilledStar from '../../assets/images/cyan-filled-star.png';
 import UnfilledStar from '../../assets/images/cyan-unfilled-star.png';
 import ScoreModal from './ScoreModal';
+import ScoreStar from './ScoreStar';
 
 const Modal = (props) => {
   const dispatch = useDispatch();
@@ -23,11 +24,13 @@ const Modal = (props) => {
     }
   };
 
-  const ratingStars = (starType) => {
-    const starArray = new Array(5).fill(starType);
-    const mapStars = starArray.map((star, index) => (
-      <img key={`${star}-${index}`} src={star} alt="star" />
-    ));
+  const mapRatingStars = () => {
+    const indexes = [1, 2, 3, 4, 5];
+    const mapStars = indexes.map(
+      (index) => (
+        <ScoreStar key={index} id={index} unmut filledStar={FilledStar} unfilledStar={UnfilledStar} />
+      ),
+    );
     return mapStars;
   };
 
@@ -81,7 +84,7 @@ const Modal = (props) => {
             <div className="name_rating">
               <h3>{challenge.assigned}</h3>
               <div className="stars_rating">
-                {ratingStars(FilledStar)}
+                {mapRatingStars()}
               </div>
               <span>{`Calificación: ${challenge.rating} de 5`}</span>
             </div>
@@ -111,7 +114,7 @@ const Modal = (props) => {
           <div className="name_rating">
             <h3>{challenge.assigned}</h3>
             <div className="stars_rating">
-              {ratingStars(UnfilledStar)}
+              {mapRatingStars()}
             </div>
             <span>{`Calificación: ${challenge.rating} de 5`}</span>
           </div>

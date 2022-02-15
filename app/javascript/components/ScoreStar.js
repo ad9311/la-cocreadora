@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import FilledStar from '../../assets/images/purple-filled-star.png';
-import UnfilledStar from '../../assets/images/purple-unfilled-star.png';
 import { selectRating } from '../redux/rating/ratingSlice';
 
 const ScoreStar = (props) => {
   const { rating, next } = useSelector((state) => state.rating);
+  const { selected } = useSelector((state) => state.challenges);
   const dispatch = useDispatch();
-  const { id, unmut } = props;
+  const {
+    id, unmut, filledStar, unfilledStar,
+  } = props;
 
   useEffect(() => {
     if (!next) {
@@ -22,9 +23,18 @@ const ScoreStar = (props) => {
     }
   };
 
+  const ratedChallenge = () => {
+    if (selected.status === 'En curso' || selected.status === 'Pendiente') {
+      return (<img src={rating >= id ? filledStar : unfilledStar} alt="star" />);
+    }
+    return (
+      <img src={selected.rating >= id ? filledStar : unfilledStar} alt="star" />
+    );
+  };
+
   return (
     <button type="button" className="score_stars" onClick={rateHandle}>
-      <img src={rating >= id ? FilledStar : UnfilledStar} alt="star" />
+      {ratedChallenge()}
     </button>
   );
 };
@@ -32,11 +42,15 @@ const ScoreStar = (props) => {
 ScoreStar.propTypes = {
   id: PropTypes.number,
   unmut: PropTypes.bool,
+  filledStar: PropTypes.string,
+  unfilledStar: PropTypes.string,
 };
 
 ScoreStar.defaultProps = {
   id: 0,
   unmut: false,
+  filledStar: '',
+  unfilledStar: '',
 };
 
 export default ScoreStar;

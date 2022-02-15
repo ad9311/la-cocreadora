@@ -31,6 +31,9 @@ gem 'jbuilder'
 gem 'react-rails'
 gem 'webpacker'
 
+# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
+gem 'rack-cors'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
