@@ -1,5 +1,12 @@
 # La Cocreadora
 
+## El proyecto:
+Este proyecto ha sido desarrollado con:
+
+- Ruby on Rails
+- React/Redux
+- HTML/CSS
+
 ## Instrucciones:
 Corra los siguientes commandos:
 
