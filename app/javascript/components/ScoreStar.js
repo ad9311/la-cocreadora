@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import FilledStar from '../../assets/images/purple-filled-star.png';
@@ -6,12 +6,20 @@ import UnfilledStar from '../../assets/images/purple-unfilled-star.png';
 import { selectRating } from '../redux/rating/ratingSlice';
 
 const ScoreStar = (props) => {
-  const { rating } = useSelector((state) => state.rating);
+  const { rating, next } = useSelector((state) => state.rating);
   const dispatch = useDispatch();
-  const { id } = props;
+  const { id, unmut } = props;
+
+  useEffect(() => {
+    if (!next) {
+      dispatch(selectRating(0));
+    }
+  }, [next]);
 
   const rateHandle = () => {
-    dispatch(selectRating(id));
+    if (!unmut) {
+      dispatch(selectRating(id));
+    }
   };
 
   return (
@@ -23,10 +31,12 @@ const ScoreStar = (props) => {
 
 ScoreStar.propTypes = {
   id: PropTypes.number,
+  unmut: PropTypes.bool,
 };
 
 ScoreStar.defaultProps = {
   id: 0,
+  unmut: false,
 };
 
 export default ScoreStar;

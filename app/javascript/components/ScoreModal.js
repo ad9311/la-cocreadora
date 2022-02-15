@@ -4,6 +4,7 @@ import Close from '../../assets/images/close.png';
 import { openScoreModal } from '../redux/challenges/challengesSlice';
 import { nextPage } from '../redux/rating/ratingSlice';
 import ScoreStar from './ScoreStar';
+import Profile from '../../assets/images/profile.png';
 
 const ScoreModal = () => {
   const { openScore, selected } = useSelector((state) => state.challenges);
@@ -13,6 +14,9 @@ const ScoreModal = () => {
   const closeScoreModal = () => {
     if (openScore) {
       dispatch(openScoreModal(!openScore));
+      if (next) {
+        dispatch(nextPage());
+      }
     }
   };
 
@@ -24,7 +28,30 @@ const ScoreModal = () => {
     if (next) {
       return (
         <div>
-          <p>lllll</p>
+          <div className="final_text">
+            <p>¡El desafío ha sido aprobado!</p>
+          </div>
+          <div className="final_score_conatiner">
+            <div className="rating_side">
+              <div className="rating_side_div">
+                <img src={Profile} alt="profile" />
+                <h3>{selected.assigned}</h3>
+              </div>
+              <div className="stars_final_score">
+                <ScoreStar id={1} unmut />
+                <ScoreStar id={2} unmut />
+                <ScoreStar id={3} unmut />
+                <ScoreStar id={4} unmut />
+                <ScoreStar id={5} unmut />
+              </div>
+            </div>
+            <div className="comment_side">
+              <textarea placeholder="Escribe un comentario..." />
+              <div className="send_button">
+                <button type="button">Enviar evaluación</button>
+              </div>
+            </div>
+          </div>
         </div>
       );
     }

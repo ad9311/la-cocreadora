@@ -15,7 +15,7 @@ const ratingSlice = createSlice({
     }),
     nextPage: (state) => ({
       rating: state.rating,
-      next: true,
+      next: !state.next,
     }),
   },
 });
